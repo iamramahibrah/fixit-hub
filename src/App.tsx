@@ -3,13 +3,21 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from "@/contexts/CartContext";
 import Index from "./pages/Index";
-import Repairs from "./pages/Repairs";
-import Customers from "./pages/Customers";
-import Technicians from "./pages/Technicians";
-import Invoices from "./pages/Invoices";
-import Reports from "./pages/Reports";
-import Settings from "./pages/Settings";
+import Auth from "./pages/Auth";
+import Pricing from "./pages/Pricing";
+import Admin from "./pages/Admin";
+import AdminAuth from "./pages/AdminAuth";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Contact from "./pages/Contact";
+import Catalog from "./pages/Catalog";
+import ProductDetail from "./pages/ProductDetail";
+import ProductCheckout from "./pages/ProductCheckout";
+import Cart from "./pages/Cart";
+import CartCheckout from "./pages/CartCheckout";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -17,21 +25,31 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/repairs" element={<Repairs />} />
-          <Route path="/customers" element={<Customers />} />
-          <Route path="/technicians" element={<Technicians />} />
-          <Route path="/invoices" element={<Invoices />} />
-          <Route path="/reports" element={<Reports />} />
-          <Route path="/settings" element={<Settings />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <CartProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Index />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/login" element={<AdminAuth />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/checkout/:id" element={<ProductCheckout />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<CartCheckout />} />
+            <Route path="/contact" element={<Contact />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

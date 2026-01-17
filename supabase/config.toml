@@ -1,1 +1,37 @@
-project_id = "cvgkspvbaxyyetktzhrw"
+project_id = "ktbtrrnjveinuatoamzy"
+
+[functions.admin-delete-user]
+verify_jwt = false
+
+[functions.mpesa-stk-push]
+verify_jwt = true
+
+[functions.mpesa-callback]
+verify_jwt = false
+
+[functions.paystack-payment]
+verify_jwt = false
+
+[functions.paystack-callback]
+verify_jwt = false
+
+[functions.kra-api]
+verify_jwt = false
+
+[functions.admin-update-payment-settings]
+verify_jwt = true
+
+[functions.stripe-webhook]
+verify_jwt = false
+
+[functions.etims-submit]
+verify_jwt = true
+
+[functions.mpesa-query-status]
+verify_jwt = true
+
+[functions.generate-product-image]
+verify_jwt = true
+
+[functions.send-subscription-email]
+verify_jwt = true
