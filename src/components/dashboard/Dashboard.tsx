@@ -49,7 +49,7 @@ export function Dashboard({
       {/* Welcome Section */}
       <div className="animate-fade-in">
         <h1 className="text-xl lg:text-2xl font-bold text-foreground">
-          Habari, {profile.businessName.split(' ')[0]}! 👋
+          Hello, {profile.businessName.split(' ')[0]}! 👋
         </h1>
         <p className="text-sm lg:text-base text-muted-foreground mt-1">
           Here's your business at a glance
